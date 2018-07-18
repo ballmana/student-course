@@ -1,4 +1,3 @@
-
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -15,8 +14,31 @@ window.Vue = require('vue');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('example-component', require('./components/ExampleComponent.vue'));
+/*
+ * Import here
+ */
+import Vue from 'vue';
+import VueRouter from 'vue-router';
+import {
+    routes
+} from './routes';
 
+/*
+ * declare var&component
+ */
+Vue.use(VueRouter);
+var Mysidebar = require('./components/SidebarComponent.vue');
+const router = new VueRouter({
+    routes
+})
+
+/*
+* Go live!!
+*/
 const app = new Vue({
-    el: '#app'
+    el: '#app',
+    router,
+    components: {
+        Mysidebar
+    }
 });
